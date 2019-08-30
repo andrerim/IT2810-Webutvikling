@@ -1,8 +1,6 @@
-
 function randColor() {
     let colors = ['orange', 'pink', 'purple', 'black', "yellow", "darkgray", "fuchsia"];
     let color = colors[Math.floor(Math.random() * colors.length)];
-    console.log(color);
     return color;
 }
 
@@ -10,7 +8,6 @@ function randColor() {
 $(document).ready(function () {
     $("rect, circle, polygon, line, path").click(function () {
         let color = randColor();
-        console.log($(this).is("rect"));
         if ($(this).is("rect")) {
             $(this).css({ fill: color, stroke: color });
         } else {
@@ -19,7 +16,6 @@ $(document).ready(function () {
             $(this).css({ fill: color, stroke: color });
         }
 
-        //console.log($("svg").hasClass("down"))
         if ($("svg").hasClass("down")) {
             $("line").attr({ "y1": "180", "y2": "320" });
             $("circle").attr({ "cx": "420", "cy": "280" });
@@ -38,23 +34,15 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $("button").click(function () {
-        //alert("You clicked me");
-
-        if ($(this).text().startsWith('Hide')) {
+        if ($(this).text().startsWith('Skjul')) {
             $(".docs").hide();
-            $(this).text("Show documentation");
+            $(this).text("Vis dokumentasjon");
         } else {
             $(".docs").show();
-            $(this).text("Hide documentation");
+            $(this).text("Skjul dokumentasjon");
         }
     });
 });
-
-
-rectX0 = 300;
-rectY0 = 300;
-rectX1 = 400;
-rexty1 = 30;
 
 
 var canv = document.getElementById("picasso").getContext("2d");
@@ -66,8 +54,7 @@ function drawCircle(x = 90, y = 275) {
     canv.arc(x, y, 40, 0, 2 * Math.PI);
     canv.fill();
     canv.closePath();
-}
-
+};
 drawCircle();
 
 

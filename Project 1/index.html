@@ -1,71 +1,111 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" type="text/css" href="main.css">
-    <!--<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
-    <script src="jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!--<script src="jquery-3.4.1.min.js"></script>-->
 </head>
+
 <body>
-    <header class="head">
+    <header class="page0" id="intro">
         <div class="container">
-            <h1>Canvas & SVG </h1>
-            <p>Picassos is most known for his SVG and CANVAS art work</p>
-            <p>He's a studen from NTNU, currently studying Informatics.</p>
+            <h1>Picasso</h1>
+            <p>This is Picassos hompage! Here you will find his artwork and documentation on how they are made</p>
+            <p>He's a student from NTNU, currently studying art history, and has been creating art since 2008</p>
+            <p>He is most known for his SVG and CANVAS art work</p>
         </div>
-        <a class="pointer" href="#art">V</a>
+        <a class="pointer south" href="#art">V</a>
     </header>
     <div class="page1" id="art">
-        <div class="grid-container">
-            <div class="item1">
+        <a class="pointer north" href="#intro">V</a>
+        <div class="grid">
+            <div class="element0">
                 <h2>SVG</h2>
             </div>
-            <div class="item2">
-                <h2>CANVAS</h2>
+            <div class="element1">
+                <h2>Canvas</h2>
             </div>
-            <div class="item3">
+            <div class="element2">
                 <svg class="down" width="500" height="400">
                     <rect width="500" height="400" fill="orange"></rect>
                     <polygon points="225,320 275,320 250,250" fill="red"></polygon>
                     <circle cx="90" cy="275" r="40" fill="red"></circle>
                     <polygon id="cube" points="380,195 420,179 410,160 370,180" fill="red"></polygon>
                     <line x1="80" y1="320" x2="420" y2="180" stroke="blue" stroke-width="5"></line>
-                    <path d="M 0 400 q 250 -160 500 0" stroke="gray" stroke-width="5" fill="green"/>
+                    <path d="M 0 400 q 250 -160 500 0" stroke="gray" stroke-width="5" fill="green" />
                 </svg>
             </div>
-            <div class="item4">
+            <div class="element3">
                 <canvas class="down" id="picasso" width="500" height="400" style="background-color:orange; "></canvas>
             </div>
         </div>
-        <a class="pointer" href="#documentation">V</a>
+        <a class="pointer south" href="#documentation">V</a>
     </div>
-    <div class="page2">
-        <div class="documentation" id="documentation">
-            <h1>Documentation</h1>
-            <button>Show documentation</button>
-            <p class="docs">
-                    Made using jQuery, css, html, js. In order to 
-                    make it i have used many hrs and worked hard and long.
-                    
-                    Made using jQuery, css, html, js. In order to 
-                    make it i have used many hrs and worked hard and long.
-                    
-                    Made using jQuery, css, html, js. In order to 
-                    make it i have used many hrs and worked hard and long.
-                    
-                    Made using jQuery, css, html, js. In order to 
-                    make it i have used many hrs and worked hard and long.
-                    
-                    Made using jQuery, css, html, js. In order to 
-                    make it i have used many hrs and worked hard and long.
-                    
-                    Made using jQuery, css, html, js. In order to 
-                    make it i have used many hrs and worked hard and long.
+    <div class="page2" id="documentation">
+        <a class="pointer north" href="#intro">V</a>
+
+        <div class="documentation">
+            <h1>Dokumentasjon</h1>
+            <button>Vis dokumentasjon</button>
+            <div class="docs">
+                <h3>CSS-Grid/Flexbox</h3>
+                <p>
+                    Nettsiden bruker kun CSS-grid, og ikke flexbox. Css-grid støtter layout av sideelementer i rutenett,
+                    i motsetning til flexbox som kun støtter layout i enten rader eller kolonner. Derfor passet CSS-grid
+                    bedre for å plassere canvas- og SVG-elementene ved siden av hverandre, med tilhørende overskrifter,
+                    på en ryddig måte.
                 </p>
+                <h3>Canvas/SVG</h3>
+                <p>
+                    HTML Canvas og SVG blir brukt til å tegne kunstverkene, som skal etterligne en humpedisse. For å
+                    tegne i Canvas, brukes det tilhørende Javascript APIet. Elementene i SVG-grafikken er tegnet ved å
+                    hardkode alle punkter i HTMLfila, uten bruk av noen API. Ved klikk på SVG-elementet, vil fargen til
+                    elementet som ble klikket på endres til en tilfeldig farge, og humpedissen vil tippe til motsatt
+                    side samtidig som figurene på humpedissen bytter plass. Dette gjøres ved hjelp av jquery som endrer
+                    på attributtene til SVG-elementene. I canvas er det ikke like enkelt å finne ut av hvor på elementet
+                    noen har klikket, og derfor endres kun bakgrunnsfargen uansett hvor det klikkes, samtidig som
+                    humpedissen tipper til motsatt side. I tillegg må hele canvas-elementet tegnes på nytt for å endre
+                    på grafikken, mens SVG-elementene kan endres hver for seg uten å måtte tegne alt på nytt, som gjorde
+                    det mulig å endre attributter på spesifikke elementer, som for eksempel «rect», «polygon» eller
+                    «circle».
+                </p>
+                <h3>Jquery</h3>
+                <p>
+                    Jquery brukes til å gjøre kunstverkene interaktiv. Jquery venter på et museklikk på enten SVG eller
+                    canvas-elementet, og ut ifra hvor på elementet klikket kom fra, vil grafikken endres. Dette gjøres
+                    ved å ha separate funksjoner for Canvas-elementet og for SVG-elementet. Når noen trykker på et av
+                    kunstverkene, trekkes en tilfeldig farge fra en liste med strenger av fargenavn. Deretter, for
+                    SVG-grafikken, oppdateres elementet med den fargen som ble trukket. Hvis Canvas-elementet ble
+                    klikket på, må hele kunstverket tegnes på nytt, og må derfor kalle på funksjoner som tegner hvert
+                    element, men med nye koordinater som funksjonsargumenter. Samtidig settes en ny
+                    bakgrunnsfarge i CSS for elementet. I tillegg brukes biblioteket også til å vise og skjule
+                    dokumentasjonen. Dette gjøres ved å bruke jquerys funksjoner hide() og show(), som endrer på CSS
+                    attributtene til «docs» klassen fra «display:none» til «display:block» eller omvendt. Scriptet vet
+                    om dokumentasjonen skal skjules eller vises, ved å lese teksten på knappen. Hvis teksten begynner
+                    med «skjul», skal dokumentasjonen skjules og teksten på knappen endres til «vis dokumentasjon».
+                </p>
+                <h3>Cross-browser testing</h3>
+                <p>
+                    Cross-browser kompatibilitet har blitt testet kontinuerlig under utviklingen. Dette ble utført ved å
+                    åpne nettsiden i to ulike nettlesere, chrome og firefox, og sørge for at alle funksjoner fungerer på
+                    begge nettleserne, og at designet er likt. Samtidig har det blitt tatt hensyn til å kun bruke CSS
+                    «properties» som støttes av både chrome og firefox.
+                </p>
+                <h3>Informasjonskilder</h3>
+                <a href="https://stackoverflow.com">Stackoverflow</a>
+                <a href="https://www.w3schools.com">W3schools</a>
+                <a href="https://developer.mozilla.org/">MDN webdocs</a>
+                <a href="https://api.jquery.com/">jQuery dokumentasjon</a>
+                <a href="https://css-tricks.com">Css-tricks</href>
+                    <a href="https://www.youtube.com">Youtube</a>
+            </div>
         </div>
-     
+
     </div>
     <script src="main.js"></script>
 </body>
+
 </html>
 
 

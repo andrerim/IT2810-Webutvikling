@@ -6,14 +6,11 @@
 }
 
 
-.head{
+.page0{
     height: 100vh;
-    /*background-color: #ff6f61ff;*/ 
-    BACKGROUND-COLOR:#B0C0CF;
-
+   background-color: #B0C0CF;
     position: relative; 
 }
-
 
 
 .container{
@@ -27,35 +24,53 @@
     width: 100%;
 }
 
+
 h1 {
     font-size: 10vh;
-    padding: 0; 
-    margin: 0; 
 }
+
 
 .pointer {
     position:absolute;
-    top: 93%;
-    left: 50%;
     font-size: 5vh; 
-    padding: 0;
-    margin: 0;
     text-decoration: none;
     color: white;
-    animation-name: bobb;
+    left: 50%;
     animation-duration: 4s;
     animation-iteration-count: infinite;
 }
 
 
-
-@keyframes bobb{
-    0%   {color:orange; top:88%;}
-  25%  {color:yellow; top: 93%;}
-  50%  {color:blue; top:88%;}
-  75%  {color:green; top:93%;}
-  100% {color:red; top:88%;}
+.north{
+    display: inline-block;
+    transform: rotate(180deg);
+    animation-name: bobbNorth;
 }
+
+
+.south{
+    top: 93%;  
+    animation-name: bobbSouth;
+}
+
+
+@keyframes bobbSouth{
+    0%   {color:orange; top:90%;}
+  25%  {color:yellow; top: 93%;}
+  50%  {color:blue; top:90%;}
+  75%  {color:green; top:93%;}
+  100% {color:red; top:90%;}
+}
+
+@keyframes bobbNorth{
+    0%   {color:orange; top: 3%;}
+  25%  {color:yellow; top: 1%;}
+  50%  {color:blue; top: 3%;}
+  75%  {color:green; top: 1%;}
+  100% {color:red; top: 3%;}
+}
+
+
 .container > h1, .container > p{
     text-align: auto; 
     padding: 10px;
@@ -64,31 +79,25 @@ h1 {
 
 .page1{
     height: 100vh;
-    /* background-color: #963cbdff;/ */
-    /*background-color: rgb(32, 35, 48);*/
-    /*background-color: #632330;*/
     background-color: #7090A0;
-
-   
     position: relative; 
-
 }
 
 .page2{
-    height: 100vh;
-    /*background-color:#FEAE51FF; */
+    height: 260vh; 
     background-color: #B0C0CF;
     position: relative; 
+    width: 100%; 
 }
 
 
-.item1 { grid-area: title1}
-.item2 { grid-area: title2}
-.item3 { grid-area: svg}
-.item4 { grid-area: canvas}
+.element0 { grid-area: title1}
+.element1 { grid-area: title2}
+.element2 { grid-area: svg}
+.element3 { grid-area: canvas}
 
 
-.grid-container{
+.grid{
     display: grid; 
     grid-template-areas: 'title1  title2 '
     'svg canvas';
@@ -100,54 +109,51 @@ h1 {
     transform: translate(0, -50%);
 }
 
-.grid-container > div {  
+.grid > div {  
     font-size: 150%; 
     text-align: center;
 }
  
-  
-/*
-.grid-container > div:nth-child(3){
-    text-align: right;
-}
-
-.grid-container > div:nth-child(4){
-    text-align: left; 
-}
-*/
 .docs {
     display: none;
+    margin-top: 30px;
 }
 
 button {
-    background-color: #f44336;
+    background-color: #7090A0;
     padding: 10px; 
     font-size: 150%;
-    border: none; 
+    border: 1px solid black; 
 }
 
 button:focus{
     border: 1px solid #963cbdff;
 }
 
-
-
 .documentation{
     position: relative; 
     text-align: center;
-    top: 25%; 
+    top: 5%; 
     left: 50%; 
     transform: translate(-50%, 0);
     padding: 10px; 
-    width: 50%;
 }
 
 .documentation > h1 {padding: 20px; }
 
-.documentation > p {
-    padding: 20px;
+.docs > p, .docs > h3, .docs > a{
     line-height: 150%; 
-    font-size: 120%;
-    position: relative; 
+    font-size: 120%; 
+    position: relative;
+    text-align: left;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 40%;
+    display:block;
+}
+
+.docs > h3{
+    font-size: 150%;
+    margin-top: 20px;
 }
 
