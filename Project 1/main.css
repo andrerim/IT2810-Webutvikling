@@ -1,0 +1,153 @@
+* { 
+    margin: 0; 
+    font-family:sans-serif;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+
+.head{
+    height: 100vh;
+    /*background-color: #ff6f61ff;*/ 
+    BACKGROUND-COLOR:#B0C0CF;
+
+    position: relative; 
+}
+
+
+
+.container{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+}
+
+h1 {
+    font-size: 10vh;
+    padding: 0; 
+    margin: 0; 
+}
+
+.pointer {
+    position:absolute;
+    top: 93%;
+    left: 50%;
+    font-size: 5vh; 
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    color: white;
+    animation-name: bobb;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+
+
+@keyframes bobb{
+    0%   {color:orange; top:88%;}
+  25%  {color:yellow; top: 93%;}
+  50%  {color:blue; top:88%;}
+  75%  {color:green; top:93%;}
+  100% {color:red; top:88%;}
+}
+.container > h1, .container > p{
+    text-align: auto; 
+    padding: 10px;
+    margin: 0;  
+}
+
+.page1{
+    height: 100vh;
+    /* background-color: #963cbdff;/ */
+    /*background-color: rgb(32, 35, 48);*/
+    /*background-color: #632330;*/
+    background-color: #7090A0;
+
+   
+    position: relative; 
+
+}
+
+.page2{
+    height: 100vh;
+    /*background-color:#FEAE51FF; */
+    background-color: #B0C0CF;
+    position: relative; 
+}
+
+
+.item1 { grid-area: title1}
+.item2 { grid-area: title2}
+.item3 { grid-area: svg}
+.item4 { grid-area: canvas}
+
+
+.grid-container{
+    display: grid; 
+    grid-template-areas: 'title1  title2 '
+    'svg canvas';
+    grid-template-rows: auto 1fr; 
+    grid-template-columns: fill;
+    grid-gap: 5px;
+    top: 50%; 
+    position: relative; 
+    transform: translate(0, -50%);
+}
+
+.grid-container > div {  
+    font-size: 150%; 
+    text-align: center;
+}
+ 
+  
+/*
+.grid-container > div:nth-child(3){
+    text-align: right;
+}
+
+.grid-container > div:nth-child(4){
+    text-align: left; 
+}
+*/
+.docs {
+    display: none;
+}
+
+button {
+    background-color: #f44336;
+    padding: 10px; 
+    font-size: 150%;
+    border: none; 
+}
+
+button:focus{
+    border: 1px solid #963cbdff;
+}
+
+
+
+.documentation{
+    position: relative; 
+    text-align: center;
+    top: 25%; 
+    left: 50%; 
+    transform: translate(-50%, 0);
+    padding: 10px; 
+    width: 50%;
+}
+
+.documentation > h1 {padding: 20px; }
+
+.documentation > p {
+    padding: 20px;
+    line-height: 150%; 
+    font-size: 120%;
+    position: relative; 
+}
+
